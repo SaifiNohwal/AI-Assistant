@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 700px;
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+        .response-box {
+            background: #e9f7ef;
+            padding: 15px;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: gray;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Assistant 🤖</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label"><strong>Select Function:</strong></label>
+                <select name="function_type" class="form-select">
+                    <option value="question">Answer a Question</option>
+                    <option value="summarize">Summarize Text</option>
+                    <option value="creative">Generate Creative Content</option>
+                    <option value="advice">Provide Advice</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><strong>Enter Your Query:</strong></label>
+                <textarea name="user_input" class="form-control" placeholder="Type your request here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Get Response</button>
+        </form>
+
+        {% if response %}
+        <div class="response-box">
+            <h5>AI Response:</h5>
+            <p>{{ response }}</p>
+        </div>
+        {% endif %}
+
+        <div class="footer">
+            <p>Powered by Google Gemini API | Designed with ❤️</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
